@@ -1,22 +1,16 @@
-import React from 'react';
+import * as React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import 'react-native-gesture-handler'
+import HomeScreen from './screens/Screens'
+const Drawer = createDrawerNavigator();
 
-// Import các màn hình của bạn
-import HomeScreen from './screens/HomeScreen';
-import DetailsScreen from './screens/DetailsScreen';
-
-const Stack = createStackNavigator();
-
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Next to you" component={DetailsScreen} />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
-
-export default App;
